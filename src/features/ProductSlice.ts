@@ -22,8 +22,8 @@ export const storeProduct = createAsyncThunk(
       )
       return response.data
     } catch (err) {
-      if (axios.isAxiosError(err) && err.response) {
-        return rejectWithValue(err.response.data)
+      if (axios.isAxiosError(err as any) && (err as any).response) {
+        return rejectWithValue((err as any).response.data)
       }
     }
   }
@@ -38,8 +38,8 @@ export const editProduct = createAsyncThunk(
       )
       return response.data
     } catch (err) {
-      if (axios.isAxiosError(err) && err.response) {
-        return rejectWithValue(err.response.data)
+      if (axios.isAxiosError(err as any) && (err as any).response) {
+        return rejectWithValue((err as any).response.data)
       }
     }
   }
@@ -59,8 +59,8 @@ export const updateProduct = createAsyncThunk(
       console.log(TblProduct, "api", response.data)
       return response.data
     } catch (err) {
-      if (axios.isAxiosError(err) && err.response) {
-        return rejectWithValue(err.response.data)
+      if (axios.isAxiosError(err as any) && (err as any).response) {
+        return rejectWithValue((err as any).response.data)
       }
     }
   }
@@ -75,8 +75,8 @@ export const deleteProduct = createAsyncThunk(
       )
       return response.data
     } catch (err) {
-      if (axios.isAxiosError(err) && err.response) {
-        return rejectWithValue(err.response.data)
+      if (axios.isAxiosError(err as any) && (err as any).response) {
+        return rejectWithValue((err as any).response.data)
       }
     }
   }
@@ -131,7 +131,9 @@ const dataSlice = createSlice({
       })
       .addCase(editProduct.fulfilled, (state, action) => {
         state.isLoading = false
-        state.editData.product = action.payload
+        if (action.payload) {
+          state.editData.product = action.payload
+        }
       })
       .addCase(editProduct.rejected, (state, action) => {
         state.isLoading = false

@@ -70,6 +70,7 @@ const ProductModal: React.FC<ProductModalProps> = ({
       onRequestClose={onRequestClose}
       contentLabel="Product Modal"
       style={CUSTOM_MODAL_STYLES}
+      ariaHideApp={false}
     >
       <div className={cx(CLASSES.MODAL_ICONBUTTON_CONTAINER)}>
         <h1 className={cx(CLASSES.MODAL_TITLE)}>{`${title} Product`}</h1>
@@ -116,11 +117,13 @@ const ProductModal: React.FC<ProductModalProps> = ({
       </div>
       <div className={cx(CLASSES.BUTTON_CONTAINER)}>
         <Button
+          aria-label="cancel"
           handleClick={onRequestClose}
           title={BUTTON_TITLE.cancel}
           className={cx(CLASSES.MODAL_BUTTON, "bg-gray-600")}
         />
         <Button
+          aria-label="update"
           handleClick={handleAddClick}
           title={title}
           className={cx(CLASSES.MODAL_BUTTON, "bg-emerald-700")}

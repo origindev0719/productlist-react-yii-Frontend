@@ -7,7 +7,7 @@ const IconButton: React.FC<ButtonProps> = ({
   handleClick,
 }) => {
   return (
-    <button className={cx(className)} onClick={handleClick}>
+    <button className={cx(className)} onClick={handleClick} aria-label="close">
       {children}
     </button>
   )

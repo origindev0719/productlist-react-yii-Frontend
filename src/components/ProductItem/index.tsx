@@ -92,18 +92,12 @@ const ProductItem = ({ item }: { item: ProductItemProps }) => {
         {item.status.name}
       </div>
       <div className="col-span-1 flex gap-3">
-        <FiEdit
-          size={20}
-          color="green"
-          className="cursor-pointer"
-          onClick={() => handleOpenModal(item.id)}
-        />
-        <FiTrash
-          size={20}
-          color="red"
-          className="cursor-pointer"
-          onClick={() => handleDeleteClick(item.id)}
-        />
+        <button aria-label="edit" onClick={() => handleOpenModal(item.id)}>
+          <FiEdit size={20} color="green" className="cursor-pointer" />
+        </button>
+        <button aria-label="trash" onClick={() => handleDeleteClick(item.id)}>
+          <FiTrash size={20} color="red" className="cursor-pointer" />
+        </button>
       </div>
       <ProductModal
         title={BUTTON_TITLE.update}
