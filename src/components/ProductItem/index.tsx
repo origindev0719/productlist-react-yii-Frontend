@@ -9,18 +9,11 @@ import {
   deleteProduct,
 } from "../../features/ProductSlice"
 import ProductModal from "../ProductModal"
-import { TOAST_TITLE } from "../../constants"
+import { TOAST_TITLE, CLASSES, BUTTON_TITLE } from "../../constants"
 import { ProductItemProps, ProductData } from "../../types"
 import { FiTrash, FiEdit, FiDollarSign } from "react-icons/fi"
 import { toast } from "react-toastify"
 import cx from "clsx"
-
-const classes = {
-  container:
-    "grid grid-cols-12 items-center pb-3 px-6 w-full p-5 bg-white rounded-md text-[1.1rem] text-gray-600 shadow-md",
-  status:
-    "col-span-2 uppercase w-3/4 md:w-1/2 text-xs text-center font-bold py-1 px-2 rounded",
-}
 
 const ProductItem = ({ item }: { item: ProductItemProps }) => {
   const dispatch = useDispatch<ThunkDispatch<any, any, AnyAction>>()
@@ -75,7 +68,7 @@ const ProductItem = ({ item }: { item: ProductItemProps }) => {
   }
 
   return (
-    <div className={cx(classes.container)}>
+    <div className={cx(CLASSES.PRODUCTITEM_CONTAINER)}>
       <div className="col-span-2 md:col-span-1">{item.id}</div>
       <div className="col-span-2 md:block hidden">
         {date.toLocaleDateString()}
@@ -87,13 +80,14 @@ const ProductItem = ({ item }: { item: ProductItemProps }) => {
       </div>
       <div className="col-span-1">{item.count}</div>
       <div
-        className={`${classes.status} ${
+        className={cx(
+          CLASSES.STATUS,
           item.status.name === "done"
             ? "bg-green-500 text-white"
             : item.status.name === "pending"
             ? "bg-yellow-500 text-black"
             : "bg-blue-500 text-white"
-        }`}
+        )}
       >
         {item.status.name}
       </div>
@@ -112,7 +106,7 @@ const ProductItem = ({ item }: { item: ProductItemProps }) => {
         />
       </div>
       <ProductModal
-        title="Update"
+        title={BUTTON_TITLE.update}
         isOpen={showModal}
         statusId={item.status_id}
         onRequestClose={handleCloseModal}

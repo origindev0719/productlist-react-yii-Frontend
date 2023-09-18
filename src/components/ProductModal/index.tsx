@@ -7,7 +7,7 @@ import { fetchStatus } from "../../features/ProductSlice"
 import Modal from "react-modal"
 import { ProductModalProps, EditProductData } from "../../types"
 import { CUSTOM_MODAL_STYLES } from "../../styles"
-import { CLASSES } from "../../constants"
+import { CLASSES, BUTTON_TITLE } from "../../constants"
 import Button from "../Button"
 import FormField from "../FormField"
 import SelectField from "../SelectField"
@@ -117,7 +117,7 @@ const ProductModal: React.FC<ProductModalProps> = ({
       <div className={cx(CLASSES.BUTTON_CONTAINER)}>
         <Button
           handleClick={onRequestClose}
-          title="Cancel"
+          title={BUTTON_TITLE.cancel}
           className={cx(CLASSES.MODAL_BUTTON, "bg-gray-600")}
         />
         <Button

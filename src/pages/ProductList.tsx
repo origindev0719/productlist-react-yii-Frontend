@@ -11,7 +11,7 @@ import { FiPlus } from "react-icons/fi"
 import { fetchAllProducts, storeProduct } from "../features/ProductSlice"
 import { RootState } from "../store"
 import { toast } from "react-toastify"
-import { NO_DATA, TOAST_TITLE, CLASSES } from "../constants"
+import { NO_DATA, TOAST_TITLE, CLASSES, BUTTON_TITLE } from "../constants"
 import cx from "clsx"
 
 const ProductList = () => {
@@ -55,7 +55,7 @@ const ProductList = () => {
             <FiPlus size={26} />
           </IconButton>
           <ProductModal
-            title="Add"
+            title={BUTTON_TITLE.create}
             isOpen={showModal}
             onRequestClose={handleCloseModal}
             handleSaveClick={handleSaveClick}

@@ -10,6 +10,12 @@ export const PRODUCT_HEADER_TITLES = [
 
 export const CREATE_BUTTON = 'Create Button'
 
+export const BUTTON_TITLE = {
+  update: 'Update',
+  create: 'Create',
+  cancel: 'Cancel'
+}
+
 export const HEADER_TITLE = 'PRODUCT'
 
 export const NO_DATA = 'No Data'
@@ -27,9 +33,10 @@ export const CLASSES = {
   FORMFIELD_CONTAINER: 'flex items-center col-span-1 w-full gap-3',
   GRID_CONTAINER: "grid grid-cols-12 pb-3 px-6 border-b border-gray-400 text-[1.2rem] text-gray-700",
   PRODUCTITEM_CONTAINER: 'grid grid-cols-12 items-center pb-3 px-6 w-full p-5 bg-white rounded-md text-[1.1rem] text-gray-600 shadow-md',
+  STATUS: "col-span-2 uppercase w-3/4 md:w-1/2 text-xs text-center font-bold py-1 px-2 rounded",
+
   MODAL_TITLE: 'text-xl md:text-2xl lg:text-3xl font-bold',
   BUTTON_CONTAINER: 'mt-12 mr-3 flex gap-5 justify-end',
-  
   MODAL_FORM_CONTAINER:"px-3 pt-8 grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-12",
   MODAL_ICONBUTTON: "text-gray-500 p-2 bg-gray-300 rounded-full flex justify-start items-center font-light",
   MODAL_ICONBUTTON_CONTAINER: "flex justify-between items-center border-b border-gray-200 pb-5",
