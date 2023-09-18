@@ -1,6 +1,9 @@
-import React from "react"
 import ReactDOM from "react-dom/client"
+import { store } from "./store"
+import { Provider } from "react-redux"
+import { ToastContainer } from "react-toastify"
 import "./index.css"
+import "react-toastify/dist/ReactToastify.css"
 import AppRouter from "./routes"
 import Modal from "react-modal"
 import reportWebVitals from "./reportWebVitals"
@@ -9,9 +12,10 @@ Modal.setAppElement("#root")
 
 const root = ReactDOM.createRoot(document.getElementById("root") as HTMLElement)
 root.render(
-  <React.StrictMode>
+  <Provider store={store}>
+    <ToastContainer />
     <AppRouter />
-  </React.StrictMode>
+  </Provider>
 )
 
 // If you want to start measuring performance in your app, pass a function

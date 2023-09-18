@@ -1,17 +1,19 @@
 import { FormFieldProps } from "../../types"
+import { CLASSES } from "../../constants"
+import cx from "clsx"
 
 const FormField = (props: FormFieldProps) => {
-  const { label, type, placeholder } = props
+  const { label, type, placeholder, value, onChange, ...restProps } = props
   return (
-    <div className="flex items-center col-span-1 w-full gap-3">
+    <div className={cx(CLASSES.FORMFIELD_CONTAINER)}>
       <label>{label}</label>
       <input
-        className="px-3 py-2 border border-gray-600 rounded-[4px] w-full"
+        className={cx(CLASSES.FORMINPUT)}
         placeholder={placeholder}
         type={type}
-        min="0"
-        max=""
-        step="0.01"
+        value={value}
+        onChange={onChange}
+        {...restProps}
       />
     </div>
   )

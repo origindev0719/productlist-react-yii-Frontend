@@ -1,15 +1,24 @@
+import { CLASSES } from "../../constants"
+import { SelectProps } from "../../types"
+import cx from "clsx"
+
 const SelectField = ({
   label,
   options = [],
-}: {
-  label: string
-  options: string[]
-}) => (
-  <div className="flex items-center col-span-1 w-full gap-3">
+  onChange = () => {},
+  selectedValue,
+}: SelectProps) => (
+  <div className={cx(CLASSES.SELECT_CONTAINER)}>
     <label>{label}:</label>
-    <select className="px-3 py-2 border border-gray-600 rounded-[4px] w-full">
+    <select
+      className={cx(CLASSES.SELECT)}
+      onChange={onChange}
+      value={selectedValue}
+    >
       {options.map((option, index) => (
-        <option key={index}>{option}</option>
+        <option key={index} value={option.id} className="uppercase">
+          {option.name}
+        </option>
       ))}
     </select>
   </div>
